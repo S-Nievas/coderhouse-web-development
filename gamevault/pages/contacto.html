@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault | Contacto</title>
+</head>
+<body>
+    <header>
+        <p>GameVault</p>
+        <p>Descubrí videojuegos según la experiencia que querés vivir.</p>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="juegos.html">Juegos</a></li>
+                <li><a href="experiencias.html">Experiencias</a></li>
+                <li><a href="generos.html">Géneros</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Contacto</h1>
+            <p>
+                Si conocés un juego que debería estar en GameVault, podés sugerirlo mediante
+                este formulario. La recomendación puede enfocarse en su historia, género o
+                tipo de experiencia.
+            </p>
+        </section>
+
+        <section>
+            <h2>Sugerir un juego</h2>
+
+            <form action="#" method="post">
+                <p>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre">
+                </p>
+
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </p>
+
+                <p>
+                    <label for="juego">Juego que desea recomendar</label>
+                    <input type="text" id="juego" name="juego">
+                </p>
+
+                <p>
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                        <option value="">Seleccionar género</option>
+                        <option value="rpg">RPG</option>
+                        <option value="fps">FPS</option>
+                        <option value="moba">MOBA</option>
+                        <option value="rts">RTS</option>
+                        <option value="survival">Survival</option>
+                        <option value="horror">Horror</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </p>
+
+                <p>
+                    <label for="motivo">Motivo de la recomendación</label>
+                    <textarea id="motivo" name="motivo" rows="5"></textarea>
+                </p>
+
+                <button type="submit">Enviar recomendación</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>GameVault. Copyright 2026.</p>
+        <ul>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">YouTube</a></li>
+            <li><a href="#">Discord</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
