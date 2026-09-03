@@ -1,0 +1,297 @@
+/* Reset y estilos generales */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #0B0F14;
+    color: #F5F7FA;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Tipografías y títulos */
+h1,
+h2,
+h3,
+.site-brand {
+    font-family: 'Orbitron', sans-serif;
+}
+
+h1 {
+    margin: 0 0 18px;
+    color: #F5F7FA;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+h2 {
+    margin: 0 0 14px;
+    color: #F5F7FA;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+h3 {
+    margin: 0 0 10px;
+    color: #00D9FF;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p {
+    margin: 0 0 16px;
+    color: #AAB4C0;
+    font-weight: 400;
+}
+
+ul {
+    margin: 0 0 16px;
+    color: #AAB4C0;
+}
+
+/* Header */
+.site-header {
+    padding: 28px 8%;
+    background-color: #161B22;
+    border-bottom: 1px solid #263241;
+}
+
+.site-brand {
+    margin: 0 0 6px;
+    color: #00D9FF;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.site-tagline {
+    margin-bottom: 20px;
+    color: #AAB4C0;
+}
+
+/* Navegación */
+.nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav a,
+.footer-links a {
+    color: #F5F7FA;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.main-nav a {
+    display: inline-block;
+    padding: 8px 12px;
+    border: 1px solid #263241;
+    border-radius: 6px;
+    background-color: #0B0F14;
+}
+
+.main-nav a:hover,
+.footer-links a:hover {
+    color: #00D9FF;
+    border-color: #00D9FF;
+}
+
+/* Contenido principal */
+.main-content {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 44px 0;
+}
+
+.intro-section,
+.content-section,
+.visual-section,
+.contact-section {
+    margin-bottom: 32px;
+    padding: 28px;
+    background-color: #161B22;
+    border: 1px solid #263241;
+    border-radius: 8px;
+}
+
+.intro-section {
+    border-left: 4px solid #00D9FF;
+}
+
+.feature-list li {
+    margin-bottom: 6px;
+}
+
+/* Juegos, experiencias y géneros */
+.featured-games {
+    margin-bottom: 32px;
+}
+
+.game-card,
+.experience-card,
+.genre-card {
+    margin-bottom: 22px;
+    padding: 24px;
+    background-color: #161B22;
+    border: 1px solid #263241;
+    border-radius: 8px;
+}
+
+.game-card:hover,
+.experience-card:hover,
+.genre-card:hover {
+    border-color: #00D9FF;
+}
+
+.game-card p:last-child,
+.experience-card ul:last-child,
+.genre-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Story Vault */
+.story-vault {
+    margin-top: 20px;
+    padding: 18px;
+    background-color: #0B0F14;
+    border-left: 4px solid #00D9FF;
+    border-radius: 6px;
+}
+
+.story-vault p {
+    margin-bottom: 0;
+}
+
+/* Imágenes */
+.main-figure {
+    margin: 0;
+}
+
+.main-figure img {
+    width: 100%;
+    border: 1px solid #263241;
+    border-radius: 8px;
+}
+
+figcaption {
+    margin-top: 10px;
+    color: #AAB4C0;
+    font-size: 14px;
+}
+
+/* Formularios */
+.contact-form {
+    max-width: 720px;
+}
+
+.form-field {
+    margin-bottom: 18px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #F5F7FA;
+    font-weight: 600;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0B0F14;
+    color: #F5F7FA;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    border: 1px solid #263241;
+    border-radius: 6px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid #00D9FF;
+    outline-offset: 2px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.primary-button {
+    padding: 12px 18px;
+    background-color: #00D9FF;
+    color: #0B0F14;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    border: 1px solid #00D9FF;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.primary-button:hover {
+    background-color: #F5F7FA;
+    border-color: #F5F7FA;
+}
+
+/* Footer */
+.site-footer {
+    padding: 26px 8%;
+    background-color: #161B22;
+    border-top: 1px solid #263241;
+}
+
+.site-footer p {
+    color: #F5F7FA;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Ajustes responsive simples */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .site-header,
+    .site-footer {
+        padding: 24px 5%;
+    }
+
+    .intro-section,
+    .content-section,
+    .visual-section,
+    .contact-section,
+    .game-card,
+    .experience-card,
+    .genre-card {
+        padding: 20px;
+    }
+}

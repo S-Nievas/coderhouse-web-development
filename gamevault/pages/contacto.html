@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/styles.css">
     <title>GameVault | Contacto</title>
 </head>
 <body>
     <!-- Encabezado y navegación principal -->
-    <header>
-        <p><strong>GameVault</strong></p>
-        <p>Descubrí videojuegos según la experiencia que querés vivir.</p>
+    <header class="site-header">
+        <p class="site-brand"><strong>GameVault</strong></p>
+        <p class="site-tagline">Descubrí videojuegos según la experiencia que querés vivir.</p>
 
-        <nav>
-            <ul>
+        <nav class="main-nav">
+            <ul class="nav-list">
                 <li><a href="../index.html">Inicio</a></li>
                 <li><a href="juegos.html">Juegos</a></li>
                 <li><a href="experiencias.html">Experiencias</a></li>
@@ -23,8 +27,8 @@
     </header>
 
     <!-- Contenido principal -->
-    <main>
-        <section>
+    <main class="main-content">
+        <section class="intro-section">
             <h1>Contacto</h1>
             <p>
                 Si conocés un juego que debería estar en GameVault, podés sugerirlo mediante
@@ -33,26 +37,26 @@
             </p>
         </section>
 
-        <section>
+        <section class="contact-section">
             <h2>Sugerir un juego</h2>
 
-            <form action="#" method="post">
-                <p>
+            <form class="contact-form" action="#" method="post">
+                <p class="form-field">
                     <label for="nombre">Nombre</label>
                     <input type="text" id="nombre" name="nombre">
                 </p>
 
-                <p>
+                <p class="form-field">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email">
                 </p>
 
-                <p>
+                <p class="form-field">
                     <label for="juego">Juego que desea recomendar</label>
                     <input type="text" id="juego" name="juego">
                 </p>
 
-                <p>
+                <p class="form-field">
                     <label for="genero">Género</label>
                     <select id="genero" name="genero">
                         <option value="">Seleccionar género</option>
@@ -66,20 +70,20 @@
                     </select>
                 </p>
 
-                <p>
+                <p class="form-field">
                     <label for="motivo">Motivo de la recomendación</label>
                     <textarea id="motivo" name="motivo" rows="5"></textarea>
                 </p>
 
-                <button type="submit">Enviar recomendación</button>
+                <button class="primary-button" type="submit">Enviar recomendación</button>
             </form>
         </section>
     </main>
 
     <!-- Pie de página -->
-    <footer>
+    <footer class="site-footer">
         <p>GameVault. Copyright 2026.</p>
-        <ul>
+        <ul class="footer-links">
             <li><a href="#">Instagram</a></li>
             <li><a href="#">YouTube</a></li>
             <li><a href="#">Discord</a></li>

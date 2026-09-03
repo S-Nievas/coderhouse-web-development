@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/styles.css">
     <title>GameVault | Inicio</title>
 </head>
 <body>
     <!-- Encabezado y navegación principal -->
-    <header>
-        <p><strong>GameVault</strong></p>
-        <p>Descubrí videojuegos según la experiencia que querés vivir.</p>
+    <header class="site-header">
+        <p class="site-brand"><strong>GameVault</strong></p>
+        <p class="site-tagline">Descubrí videojuegos según la experiencia que querés vivir.</p>
 
-        <nav>
-            <ul>
+        <nav class="main-nav">
+            <ul class="nav-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="pages/juegos.html">Juegos</a></li>
                 <li><a href="pages/experiencias.html">Experiencias</a></li>
@@ -23,8 +27,8 @@
     </header>
 
     <!-- Contenido principal -->
-    <main>
-        <section>
+    <main class="main-content">
+        <section class="intro-section">
             <h1>Encontrá tu próxima experiencia.</h1>
             <p>
                 GameVault es una web pensada para recomendar videojuegos según lo que cada
@@ -33,7 +37,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="content-section">
             <h2>Cómo funciona GameVault</h2>
             <p>
                 El sitio permite descubrir juegos mediante géneros, experiencias, historias
@@ -41,7 +45,7 @@
                 a elegir mejor qué jugar después.
             </p>
 
-            <ul>
+            <ul class="feature-list">
                 <li>Géneros.</li>
                 <li>Experiencias.</li>
                 <li>Historias.</li>
@@ -49,10 +53,10 @@
             </ul>
         </section>
 
-        <section>
+        <section class="featured-games">
             <h2>Juegos destacados</h2>
 
-            <article>
+            <article class="game-card">
                 <h3>Red Dead Redemption 2</h3>
                 <p>
                     Una aventura de mundo abierto ambientada en el final del viejo oeste,
@@ -64,7 +68,7 @@
                 </p>
             </article>
 
-            <article>
+            <article class="game-card">
                 <h3>Elden Ring</h3>
                 <p>
                     Un action RPG de fantasía oscura donde la exploración, el combate y el
@@ -76,7 +80,7 @@
                 </p>
             </article>
 
-            <article>
+            <article class="game-card">
                 <h3>Age of Empires II</h3>
                 <p>
                     Un clásico de estrategia en tiempo real donde se construyen civilizaciones,
@@ -88,7 +92,7 @@
                 </p>
             </article>
 
-            <article>
+            <article class="game-card">
                 <h3>Cyberpunk 2077</h3>
                 <p>
                     Un RPG de acción ubicado en una ciudad futurista marcada por tecnología,
@@ -101,10 +105,10 @@
             </article>
         </section>
 
-        <section>
+        <section class="visual-section">
             <h2>Imagen del proyecto</h2>
 
-            <figure>
+            <figure class="main-figure">
                 <img src="assets/img/gamevault.jpg" alt="Ilustración conceptual de una biblioteca digital de videojuegos">
                 <figcaption>GameVault reúne recomendaciones para encontrar nuevas aventuras digitales.</figcaption>
             </figure>
@@ -112,9 +116,9 @@
     </main>
 
     <!-- Pie de página -->
-    <footer>
+    <footer class="site-footer">
         <p>GameVault. Copyright 2026.</p>
-        <ul>
+        <ul class="footer-links">
             <li><a href="#">Instagram</a></li>
             <li><a href="#">YouTube</a></li>
             <li><a href="#">Discord</a></li>

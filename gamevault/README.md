@@ -1,16 +1,15 @@
 # GameVault
 
-GameVault es un proyecto académico de Coderhouse para una primera entrega de HTML.
+GameVault es un proyecto académico de Coderhouse desarrollado por etapas.
 
 El sitio propone una web de recomendación y descubrimiento de videojuegos. La idea principal es ayudar al usuario a encontrar qué jugar según el tipo de experiencia que busca, además del género o la similitud con otros títulos.
 
-## Objetivo de la entrega
+## Objetivo de la entrega actual
 
-Crear la estructura HTML semántica del sitio, sin agregar estilos ni comportamiento dinámico.
+Crear la estructura HTML semántica del sitio y aplicar una estilización visual completa mediante CSS externo.
 
 Esta entrega no utiliza:
 
-- CSS.
 - JavaScript.
 - Bootstrap.
 - Tailwind.
@@ -28,8 +27,11 @@ gamevault/
 │   ├── experiencias.html
 │   ├── generos.html
 │   └── contacto.html
-└── assets/
-    └── img/
+├── assets/
+│   └── img/
+│       └── gamevault.jpg
+└── styles/
+    └── styles.css
 ```
 
 ## Páginas
@@ -46,4 +48,5 @@ gamevault/
 - Navegación entre todas las páginas mediante rutas relativas.
 - Formulario con `label` correctamente asociados a sus campos.
 - Jerarquía de títulos ordenada.
-- Imagen local preparada en `assets/img/gamevault.jpg`.
+- Estilos centralizados en `styles/styles.css`.
+- Imagen local disponible en `assets/img/gamevault.jpg`.
