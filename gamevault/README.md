@@ -29,7 +29,6 @@ gamevault/
 │   └── contacto.html
 ├── assets/
 │   └── img/
-│       └── gamevault.jpg
 └── styles/
     └── styles.css
 ```
@@ -49,4 +48,3 @@ gamevault/
 - Formulario con `label` correctamente asociados a sus campos.
 - Jerarquía de títulos ordenada.
 - Estilos centralizados en `styles/styles.css`.
-- Imagen local disponible en `assets/img/gamevault.jpg`.

@@ -12,12 +12,6 @@ body {
     line-height: 1.6;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
 /* Tipografías y títulos */
 h1,
 h2,
@@ -119,7 +113,6 @@ ul {
 
 .intro-section,
 .content-section,
-.visual-section,
 .contact-section {
     margin-bottom: 32px;
     padding: 28px;
@@ -174,23 +167,6 @@ ul {
 
 .story-vault p {
     margin-bottom: 0;
-}
-
-/* Imágenes */
-.main-figure {
-    margin: 0;
-}
-
-.main-figure img {
-    width: 100%;
-    border: 1px solid #263241;
-    border-radius: 8px;
-}
-
-figcaption {
-    margin-top: 10px;
-    color: #AAB4C0;
-    font-size: 14px;
 }
 
 /* Formularios */
@@ -287,7 +263,6 @@ textarea {
 
     .intro-section,
     .content-section,
-    .visual-section,
     .contact-section,
     .game-card,
     .experience-card,
