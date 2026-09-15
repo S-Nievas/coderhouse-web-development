@@ -1,10 +1,11 @@
 /* Reset y estilos generales */
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     background-color: #0B0F14;
     color: #F5F7FA;
     font-family: 'Inter', sans-serif;
@@ -12,16 +13,20 @@ body {
     line-height: 1.6;
 }
 
+ul {
+    padding-left: 20px;
+    color: #AAB4C0;
+}
+
 /* Tipografías y títulos */
 h1,
 h2,
 h3,
-.site-brand {
+.brand {
     font-family: 'Orbitron', sans-serif;
 }
 
 h1 {
-    margin: 0 0 18px;
     color: #F5F7FA;
     font-size: 42px;
     font-weight: 700;
@@ -29,57 +34,61 @@ h1 {
 }
 
 h2 {
-    margin: 0 0 14px;
     color: #F5F7FA;
     font-size: 26px;
     font-weight: 600;
 }
 
 h3 {
-    margin: 0 0 10px;
     color: #00D9FF;
     font-size: 20px;
     font-weight: 600;
 }
 
 p {
-    margin: 0 0 16px;
     color: #AAB4C0;
     font-weight: 400;
 }
 
-ul {
-    margin: 0 0 16px;
-    color: #AAB4C0;
-}
-
-/* Header */
+/* Header y navbar */
 .site-header {
-    padding: 28px 8%;
     background-color: #161B22;
     border-bottom: 1px solid #263241;
 }
 
-.site-brand {
-    margin: 0 0 6px;
+.main-nav {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 24px 0 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+}
+
+.brand {
     color: #00D9FF;
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 1px;
+    text-decoration: none;
 }
 
 .site-tagline {
-    margin-bottom: 20px;
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 0 0 24px;
     color: #AAB4C0;
 }
 
 /* Navegación */
-.nav-list {
+.nav-links {
+    padding-left: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
     gap: 12px;
-    margin: 0;
-    padding: 0;
     list-style: none;
 }
 
@@ -90,15 +99,19 @@ ul {
     text-decoration: none;
 }
 
-.main-nav a {
-    display: inline-block;
-    padding: 8px 12px;
-    border: 1px solid #263241;
-    border-radius: 6px;
-    background-color: #0B0F14;
+.main-nav .brand {
+    color: #00D9FF;
 }
 
-.main-nav a:hover,
+.nav-links a {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #0B0F14;
+    border: 1px solid #263241;
+    border-radius: 6px;
+}
+
+.nav-links a:hover,
 .footer-links a:hover {
     color: #00D9FF;
     border-color: #00D9FF;
@@ -108,40 +121,85 @@ ul {
 .main-content {
     width: min(1120px, 92%);
     margin: 0 auto;
-    padding: 44px 0;
+    padding: 48px 0;
+}
+
+.hero,
+.intro-section,
+.content-section,
+.contact-section {
+    margin-bottom: 32px;
+    padding: 32px;
+    background-color: #161B22;
+    border: 1px solid #263241;
+    border-radius: 8px;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border-left: 4px solid #00D9FF;
 }
 
 .intro-section,
 .content-section,
 .contact-section {
-    margin-bottom: 32px;
-    padding: 28px;
-    background-color: #161B22;
-    border: 1px solid #263241;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .intro-section {
     border-left: 4px solid #00D9FF;
 }
 
-.feature-list li {
-    margin-bottom: 6px;
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
-/* Juegos, experiencias y géneros */
+/* Juegos destacados y listados */
 .featured-games {
     margin-bottom: 32px;
+}
+
+.featured-games h2 {
+    margin-bottom: 18px;
+}
+
+.game-list,
+.games-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 24px;
+}
+
+.game-list .game-card {
+    flex: 1 1 240px;
+}
+
+.games-list .game-card {
+    flex: 1 1 460px;
 }
 
 .game-card,
 .experience-card,
 .genre-card {
-    margin-bottom: 22px;
     padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
     background-color: #161B22;
     border: 1px solid #263241;
     border-radius: 8px;
+}
+
+.experience-card,
+.genre-card {
+    margin-bottom: 22px;
 }
 
 .game-card:hover,
@@ -150,37 +208,40 @@ ul {
     border-color: #00D9FF;
 }
 
-.game-card p:last-child,
-.experience-card ul:last-child,
-.genre-card p:last-child {
-    margin-bottom: 0;
+.experience-card ul,
+.genre-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
 }
 
 /* Story Vault */
 .story-vault {
-    margin-top: 20px;
+    margin-top: 8px;
     padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     background-color: #0B0F14;
     border-left: 4px solid #00D9FF;
     border-radius: 6px;
 }
 
-.story-vault p {
-    margin-bottom: 0;
-}
-
 /* Formularios */
 .contact-form {
     max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 .form-field {
-    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
     color: #F5F7FA;
     font-weight: 600;
 }
@@ -210,6 +271,7 @@ textarea {
 }
 
 .primary-button {
+    align-self: flex-start;
     padding: 12px 18px;
     background-color: #00D9FF;
     color: #0B0F14;
@@ -234,19 +296,31 @@ textarea {
 }
 
 .site-footer p {
+    margin-bottom: 16px;
     color: #F5F7FA;
 }
 
 .footer-links {
+    padding-left: 0;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 14px;
-    margin: 0;
-    padding: 0;
     list-style: none;
 }
 
 /* Ajustes responsive simples */
+@media (max-width: 760px) {
+    .main-nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        justify-content: flex-start;
+    }
+}
+
 @media (max-width: 640px) {
     h1 {
         font-size: 32px;
@@ -256,17 +330,17 @@ textarea {
         font-size: 22px;
     }
 
-    .site-header,
-    .site-footer {
-        padding: 24px 5%;
+    .main-content {
+        padding: 32px 0;
     }
 
+    .hero,
     .intro-section,
     .content-section,
     .contact-section,
     .game-card,
     .experience-card,
     .genre-card {
-        padding: 20px;
+        padding: 22px;
     }
 }

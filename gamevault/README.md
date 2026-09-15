@@ -6,7 +6,7 @@ El sitio propone una web de recomendación y descubrimiento de videojuegos. La i
 
 ## Objetivo de la entrega actual
 
-Crear la estructura HTML semántica del sitio y aplicar una estilización visual completa mediante CSS externo.
+Crear la estructura HTML semántica del sitio y aplicar una estilización visual mediante CSS externo, incorporando Box Model y Flexbox para organizar la navegación, el contenido principal y las tarjetas de videojuegos.
 
 Esta entrega no utiliza:
 
@@ -48,3 +48,4 @@ gamevault/
 - Formulario con `label` correctamente asociados a sus campos.
 - Jerarquía de títulos ordenada.
 - Estilos centralizados en `styles/styles.css`.
+- Layout flexible con `display: flex`, `gap`, `justify-content` y `align-items`.
