@@ -6,22 +6,31 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../styles/styles.css">
     <title>GameVault | Experiencias</title>
 </head>
 <body>
     <!-- Encabezado y navegación principal -->
     <header class="site-header">
-        <nav class="main-nav">
-            <a class="brand" href="../index.html">GameVault</a>
+        <nav class="navbar navbar-expand-lg main-nav gamevault-navbar">
+            <div class="container-fluid nav-container">
+                <a class="navbar-brand brand" href="../index.html">GameVault</a>
 
-            <ul class="nav-links">
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="juegos.html">Juegos</a></li>
-                <li><a href="experiencias.html">Experiencias</a></li>
-                <li><a href="generos.html">Géneros</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gameVaultNavbar" aria-controls="gameVaultNavbar" aria-expanded="false" aria-label="Abrir menu de navegacion">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="gameVaultNavbar">
+                    <ul class="navbar-nav nav-links ms-lg-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="juegos.html">Juegos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="experiencias.html">Experiencias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="generos.html">Géneros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <p class="site-tagline">Descubrí videojuegos según la experiencia que querés vivir.</p>
@@ -150,5 +159,6 @@
             <li><a href="#">Discord</a></li>
         </ul>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
