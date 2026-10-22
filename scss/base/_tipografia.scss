@@ -1,0 +1,59 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+body {
+  font-family: v.$font-body;
+  font-size: v.$font-size-base;
+  line-height: v.$line-height-body;
+}
+
+h1,
+h2,
+h3,
+.brand,
+.navbar-brand {
+  font-family: v.$font-heading;
+}
+
+h1 {
+  color: v.$color-text;
+  font-size: v.$font-size-h1;
+  font-weight: v.$weight-bold;
+  line-height: v.$line-height-heading;
+  overflow-wrap: break-word;
+
+  @include m.desktop {
+    font-size: v.$font-size-h1-desktop;
+  }
+}
+
+h2 {
+  color: v.$color-text;
+  font-size: v.$font-size-h2;
+  font-weight: v.$weight-semibold;
+  overflow-wrap: break-word;
+
+  @include m.desktop {
+    font-size: v.$font-size-h2-desktop;
+  }
+}
+
+h3 {
+  color: v.$color-accent;
+  font-size: v.$font-size-h3;
+  font-weight: v.$weight-semibold;
+  overflow-wrap: break-word;
+}
+
+p {
+  color: v.$color-muted;
+  font-weight: v.$weight-normal;
+  overflow-wrap: break-word;
+}
+
+figcaption {
+  margin-top: v.$space-10;
+  color: v.$color-muted;
+  font-size: v.$font-size-small;
+  overflow-wrap: break-word;
+}

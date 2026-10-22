@@ -1,0 +1,123 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.featured-games {
+  margin-bottom: v.$space-32;
+
+  h2 {
+    margin-bottom: v.$space-18;
+  }
+}
+
+.featured-games-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: v.$space-24;
+
+  @include m.desktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: v.$space-24;
+
+  @include m.desktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.game-card,
+.experience-card,
+.genre-card {
+  padding: v.$space-24;
+  min-width: 0;
+  @include m.stack(v.$space-14);
+  @include m.surface;
+  transition: border-color v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing,
+    box-shadow v.$transition-duration v.$transition-easing,
+    transform v.$transition-fast v.$transition-easing;
+
+  &:hover {
+    border-color: v.$color-accent;
+    box-shadow: 0 v.$space-10 v.$space-24 rgba(v.$color-accent, 0.08);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  @include m.desktop {
+    padding: v.$space-32;
+  }
+}
+
+.game-card {
+  &.card {
+    color: v.$color-text;
+    background-color: v.$color-surface;
+  }
+}
+
+.experience-card,
+.genre-card {
+  margin-bottom: v.$space-22;
+
+  ul {
+    @include m.stack(v.$space-6);
+  }
+}
+
+.badge-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: v.$space-8;
+}
+
+.gamevault-badge {
+  padding: v.$space-8 v.$space-10;
+  color: v.$color-background;
+  background-color: v.$color-accent;
+  border: v.$border-width solid v.$color-accent;
+  border-radius: v.$radius-pill;
+  font-weight: v.$weight-bold;
+  transition: color v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing,
+    border-color v.$transition-duration v.$transition-easing;
+
+  &:hover,
+  &:focus {
+    color: v.$color-text;
+    background-color: v.$color-surface;
+    border-color: v.$color-text;
+  }
+}
+
+.game-card-featured-red-dead {
+  @include m.featured-background("../assets/img/red-dead-redemption-2-bg.png");
+}
+
+.game-card-featured-elden-ring {
+  @include m.featured-background("../assets/img/elden-ring-bg.png");
+}
+
+.game-card-featured-age {
+  @include m.featured-background("../assets/img/age-of-empires-2-bg.png");
+}
+
+.game-card-featured-cyberpunk {
+  @include m.featured-background("../assets/img/cyberpunk-2077-bg.png");
+}
+
+.story-vault {
+  margin-top: v.$space-8;
+  padding: v.$space-18;
+  @include m.stack(v.$space-10);
+  background-color: v.$color-background;
+  border-left: v.$border-accent-width solid v.$color-accent;
+  border-radius: v.$radius-small;
+}

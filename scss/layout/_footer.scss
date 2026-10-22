@@ -1,0 +1,30 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.site-footer {
+  padding: v.$space-26 v.$footer-gutter;
+  background-color: v.$color-surface;
+  border-top: v.$border-width solid v.$color-border;
+
+  p {
+    margin-bottom: v.$space-16;
+    color: v.$color-text;
+  }
+}
+
+.footer-links {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: v.$space-14;
+  list-style: none;
+
+  a {
+    @include m.navigation-link;
+    display: inline-block;
+    padding: v.$space-4 0;
+
+    @include m.navigation-link-states;
+  }
+}

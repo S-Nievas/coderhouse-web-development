@@ -1,0 +1,106 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.main-nav {
+  @include m.container;
+  padding: v.$space-22 0 v.$space-14;
+  min-width: 0;
+}
+
+.nav-container {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: v.$space-18;
+}
+
+.brand {
+  color: v.$color-accent;
+  font-size: v.$font-size-brand;
+  font-weight: v.$weight-bold;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: color v.$transition-duration v.$transition-easing,
+    text-shadow v.$transition-duration v.$transition-easing;
+
+  &:hover,
+  &:focus {
+    color: v.$color-text;
+    text-shadow: 0 0 v.$space-12 rgba(v.$color-accent, 0.45);
+  }
+
+  &:active {
+    color: v.$color-accent;
+  }
+}
+
+.nav-links {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: v.$space-10;
+  list-style: none;
+  width: 100%;
+  margin-top: v.$space-16;
+  min-width: 0;
+
+  @include m.desktop {
+    width: auto;
+    margin-top: 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    gap: v.$space-12;
+  }
+}
+
+.gamevault-navbar {
+  .nav-link {
+    @include m.navigation-link;
+    display: inline-block;
+    padding: v.$space-8 v.$space-12;
+    background-color: v.$color-background;
+    border: v.$border-width solid v.$color-border;
+    border-radius: v.$radius-small;
+    overflow-wrap: break-word;
+
+    @include m.navigation-link-states;
+  }
+
+  .brand {
+    color: v.$color-accent;
+  }
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+}
+
+.navbar-toggler {
+  border-color: v.$color-accent;
+  background-color: v.$color-background;
+  transition: border-color v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing,
+    transform v.$transition-fast v.$transition-easing;
+
+  &:hover,
+  &:focus {
+    background-color: v.$color-surface;
+    border-color: v.$color-text;
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 v.$focus-ring rgba(v.$color-accent, 0.35);
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}

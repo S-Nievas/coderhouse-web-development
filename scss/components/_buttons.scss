@@ -1,0 +1,35 @@
+@use "../utilities/variables" as v;
+
+.primary-button {
+  align-self: flex-start;
+  padding: v.$space-12 v.$space-18;
+  background-color: v.$color-accent;
+  color: v.$color-background;
+  font-family: v.$font-body;
+  font-size: v.$font-size-base;
+  font-weight: v.$weight-bold;
+  border: v.$border-width solid v.$color-accent;
+  border-radius: v.$radius-small;
+  cursor: pointer;
+  transition: color v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing,
+    border-color v.$transition-duration v.$transition-easing,
+    transform v.$transition-fast v.$transition-easing,
+    box-shadow v.$transition-duration v.$transition-easing;
+
+  &:hover,
+  &:focus {
+    background-color: v.$color-text;
+    border-color: v.$color-text;
+    color: v.$color-background;
+    box-shadow: 0 0 0 v.$focus-ring rgba(v.$color-accent, 0.18);
+  }
+}
+
+.primary-button:active,
+.gamevault-btn:active {
+  color: v.$color-background;
+  background-color: v.$color-muted;
+  border-color: v.$color-muted;
+  transform: translateY(1px);
+}

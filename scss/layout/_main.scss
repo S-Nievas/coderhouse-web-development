@@ -1,0 +1,39 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.main-content {
+  @include m.container;
+  padding: v.$space-32 0;
+
+  @include m.desktop {
+    padding: v.$space-48 0;
+  }
+}
+
+.hero,
+.intro-section,
+.content-section,
+.contact-section {
+  margin-bottom: v.$space-32;
+  padding: v.$space-22;
+  @include m.surface;
+  min-width: 0;
+
+  @include m.desktop {
+    padding: v.$space-32;
+  }
+}
+
+.intro-section,
+.content-section,
+.contact-section {
+  @include m.stack(v.$space-16);
+}
+
+.intro-section {
+  border-left: v.$border-accent-width solid v.$color-accent;
+}
+
+.feature-list {
+  @include m.stack(v.$space-6);
+}

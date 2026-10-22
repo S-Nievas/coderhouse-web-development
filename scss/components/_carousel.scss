@@ -1,0 +1,77 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.vault-carousel-section {
+  margin-bottom: v.$space-32;
+
+  h2 {
+    margin-bottom: v.$space-18;
+  }
+}
+
+.gamevault-carousel {
+  overflow: hidden;
+  @include m.surface;
+
+  .carousel-item img {
+    width: 100%;
+    height: v.$carousel-height-mobile;
+    object-fit: cover;
+
+    @include m.desktop {
+      height: v.$carousel-height-desktop;
+    }
+  }
+
+  .carousel-caption {
+    display: block;
+    right: v.$footer-gutter;
+    left: v.$footer-gutter;
+    bottom: v.$space-22;
+    padding: v.$space-16;
+    background-color: rgba(v.$color-background, 0.82);
+    border: v.$border-width solid rgba(v.$color-accent, 0.45);
+    border-radius: v.$radius-medium;
+
+    h3,
+    p {
+      margin-bottom: 0;
+    }
+
+    p {
+      color: v.$color-text;
+    }
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next,
+  .carousel-indicators button {
+    transition: opacity v.$transition-duration v.$transition-easing,
+      transform v.$transition-fast v.$transition-easing,
+      background-color v.$transition-duration v.$transition-easing;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  .carousel-indicators {
+    button {
+      background-color: v.$color-muted;
+    }
+
+    .active,
+    button:hover,
+    button:focus {
+      background-color: v.$color-accent;
+    }
+  }
+}

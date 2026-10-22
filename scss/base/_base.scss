@@ -1,0 +1,57 @@
+@use "../utilities/variables" as v;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: v.$color-background;
+  color: v.$color-text;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  padding-left: v.$space-20;
+  color: v.$color-muted;
+}
+
+label {
+  color: v.$color-text;
+  font-weight: v.$weight-semibold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: v.$space-12;
+  background-color: v.$color-background;
+  color: v.$color-text;
+  font-family: v.$font-body;
+  font-size: v.$font-size-base;
+  border: v.$border-width solid v.$color-border;
+  border-radius: v.$radius-small;
+  transition: border-color v.$transition-duration v.$transition-easing,
+    box-shadow v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing;
+}
+
+textarea {
+  resize: vertical;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: v.$focus-width solid v.$color-accent;
+  outline-offset: v.$focus-offset;
+}
