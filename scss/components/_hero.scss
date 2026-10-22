@@ -1,0 +1,36 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "content"
+    "image";
+  gap: v.$space-24;
+  align-items: center;
+  border-left: v.$border-accent-width solid v.$color-accent;
+
+  @include m.desktop {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "content image";
+    gap: v.$space-40;
+  }
+}
+
+.hero-content {
+  grid-area: content;
+  min-width: 0;
+  @include m.stack(v.$space-18);
+}
+
+.hero-image {
+  grid-area: image;
+  min-width: 0;
+
+  img {
+    width: 100%;
+    border: v.$border-width solid v.$color-border;
+    border-radius: v.$radius-medium;
+  }
+}

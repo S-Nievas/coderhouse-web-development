@@ -1,0 +1,59 @@
+@use "variables" as v;
+
+@mixin container {
+  width: min(v.$container-max, v.$container-width);
+  margin: 0 auto;
+}
+
+@mixin stack($gap) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin surface {
+  background-color: v.$color-surface;
+  border: v.$border-width solid v.$color-border;
+  border-radius: v.$radius-medium;
+}
+
+@mixin desktop {
+  @media (min-width: v.$breakpoint-desktop) {
+    @content;
+  }
+}
+
+@mixin featured-background($image) {
+  background-image:
+    linear-gradient(rgba(v.$color-background, 0.82), rgba(v.$color-background, 0.88)),
+    url($image);
+  background-size: cover;
+  background-position: center;
+  border-color: v.$color-accent;
+}
+
+// Los mismos estados se comparten entre la navbar y el pie de página.
+@mixin navigation-link {
+  color: v.$color-text;
+  font-weight: v.$weight-semibold;
+  text-decoration: none;
+  transition: color v.$transition-duration v.$transition-easing,
+    background-color v.$transition-duration v.$transition-easing,
+    border-color v.$transition-duration v.$transition-easing,
+    transform v.$transition-fast v.$transition-easing;
+}
+
+@mixin navigation-link-states {
+  &:hover,
+  &:focus {
+    color: v.$color-accent;
+    border-color: v.$color-accent;
+  }
+
+  &:active {
+    color: v.$color-background;
+    background-color: v.$color-accent;
+    border-color: v.$color-accent;
+    transform: translateY(1px);
+  }
+}

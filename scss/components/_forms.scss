@@ -1,0 +1,24 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.contact-form {
+  max-width: v.$form-max;
+  @include m.stack(v.$space-18);
+}
+
+.form-field {
+  @include m.stack(v.$space-8);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+.form-control:focus,
+.form-select:focus {
+  outline: v.$focus-width solid v.$color-accent;
+  outline-offset: v.$focus-offset-control;
+  background-color: v.$color-background;
+  color: v.$color-text;
+  border-color: v.$color-accent;
+  box-shadow: 0 0 0 v.$focus-ring rgba(v.$color-accent, 0.18);
+}

@@ -1,0 +1,13 @@
+@use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
+
+.site-header {
+  background-color: v.$color-surface;
+  border-bottom: v.$border-width solid v.$color-border;
+}
+
+.site-tagline {
+  @include m.container;
+  padding: 0 0 v.$space-22;
+  color: v.$color-muted;
+}

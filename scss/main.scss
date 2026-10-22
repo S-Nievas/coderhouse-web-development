@@ -1,0 +1,16 @@
+/*! CSS generado por Sass. Editar los archivos de scss/, no styles/styles.css. */
+
+// Único punto de entrada: cada módulo declara sus dependencias con @use.
+@use "utilities/variables";
+@use "utilities/mixins";
+@use "base/base";
+@use "base/tipografia";
+@use "layout/header";
+@use "layout/nav";
+@use "layout/main";
+@use "components/hero";
+@use "components/cards";
+@use "components/carousel";
+@use "components/forms";
+@use "components/buttons";
+@use "layout/footer";
