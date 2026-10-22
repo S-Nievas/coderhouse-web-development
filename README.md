@@ -28,6 +28,7 @@ Proyecto académico de Desarrollo Web de Coderhouse para descubrir videojuegos s
 
 ```text
 coderhouse-web-development/
+├── .nojekyll
 ├── index.html
 ├── README.md
 ├── pages/
@@ -64,6 +65,8 @@ En **Settings → Pages → Build and deployment**, la configuración de publica
 - **Source:** Deploy from a branch.
 - **Branch:** `main`.
 - **Folder:** `/ (root)`.
+
+El archivo `.nojekyll` permite publicar los HTML, CSS e imágenes directamente, sin procesarlos con Jekyll.
 
 Dirección del sitio: [https://s-nievas.github.io/coderhouse-web-development/](https://s-nievas.github.io/coderhouse-web-development/).
 
