@@ -60,6 +60,7 @@
 .gamevault-navbar {
   .nav-link {
     @include m.navigation-link;
+    position: relative;
     display: inline-block;
     padding: v.$space-8 v.$space-12;
     background-color: v.$color-background;
@@ -68,6 +69,29 @@
     overflow-wrap: break-word;
 
     @include m.navigation-link-states;
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: v.$space-12;
+      bottom: v.$space-4;
+      left: v.$space-12;
+      height: v.$border-width;
+      background-color: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform v.$transition-duration v.$transition-easing;
+    }
+
+    &:focus-visible::after {
+      transform: scaleX(1);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover::after {
+        transform: scaleX(1);
+      }
+    }
   }
 
   .brand {

@@ -27,10 +27,24 @@
 .hero-image {
   grid-area: image;
   min-width: 0;
+  animation: vault-reveal v.$animation-duration ease-out both;
 
   img {
     width: 100%;
     border: v.$border-width solid v.$color-border;
     border-radius: v.$radius-medium;
+  }
+}
+
+// Entrada nativa breve: transforma la imagen sin mover el resto del layout.
+@keyframes vault-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(v.$space-8);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

@@ -53,6 +53,17 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
 body {
   font-family: "Inter", sans-serif;
   font-size: 16px;
@@ -192,6 +203,7 @@ figcaption {
   font-weight: 600;
   text-decoration: none;
   transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+  position: relative;
   display: inline-block;
   padding: 8px 12px;
   background-color: #0b0f14;
@@ -208,6 +220,26 @@ figcaption {
   background-color: #00d9ff;
   border-color: #00d9ff;
   transform: translateY(1px);
+}
+.gamevault-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 4px;
+  left: 12px;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.gamevault-navbar .nav-link:focus-visible::after {
+  transform: scaleX(1);
+}
+@media (hover: hover) and (pointer: fine) {
+  .gamevault-navbar .nav-link:hover::after {
+    transform: scaleX(1);
+  }
 }
 .gamevault-navbar .brand {
   color: #00d9ff;
@@ -317,6 +349,7 @@ figcaption {
 .hero-image {
   grid-area: image;
   min-width: 0;
+  animation: vault-reveal 0.6s ease-out both;
 }
 .hero-image img {
   width: 100%;
@@ -324,6 +357,16 @@ figcaption {
   border-radius: 8px;
 }
 
+@keyframes vault-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .featured-games {
   margin-bottom: 32px;
 }
