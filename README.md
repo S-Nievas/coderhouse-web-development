@@ -68,28 +68,34 @@ coderhouse-web-development/
 
 El archivo `index.html` se ubica en la raíz para permitir la publicación de GitHub Pages desde esa carpeta.
 
-## Abrir el proyecto en tu computadora
+## Instalación desde cero
 
-1. Cloná o descargá este repositorio.
-2. Abrí el archivo `index.html` en un navegador.
-3. Recorré las páginas desde la barra de navegación.
+Necesitás **Git**, **Node.js 20.19.0 o superior** y **npm** (incluido con Node.js). Comprobá que estén disponibles en una terminal con `git --version`, `node --version` y `npm --version`.
 
-Para visitar el sitio no hace falta instalar dependencias: el CSS compilado está incluido en el repositorio. Se necesita conexión a internet para cargar los CDN de Bootstrap y Animate.css, además de las fuentes externas.
-
-## Editar y compilar los estilos
-
-Requiere Node.js **20.19.0 o superior** y npm. Desde la raíz del repositorio:
+Cloná el proyecto, entrá a su carpeta, instalá las versiones del archivo `package-lock.json` y compilá:
 
 ```sh
+git clone https://github.com/S-Nievas/coderhouse-web-development.git
+cd coderhouse-web-development
 npm ci
 npm run build
 ```
 
-Para recompilar automáticamente al guardar cambios en SCSS:
+Al terminar sin errores, Sass genera **`styles/styles.css`** desde **`scss/main.scss`**. No hace falta instalar Sass globalmente: se usa la versión local del proyecto.
+
+Abrí `index.html` en un navegador y recorré las cinco páginas desde el menú. No se requieren servidor, claves ni variables de entorno. Si solo querés visitar el sitio, podés usar [GameVault publicado](https://s-nievas.github.io/coderhouse-web-development/) o abrir el HTML descargado: el CSS compilado ya está incluido. Se necesita internet para los CDN de Bootstrap, Animate.css y Google Fonts.
+
+En Windows, si PowerShell bloquea `npm.ps1`, usá `npm.cmd ci`, `npm.cmd run build` y `npm.cmd run watch:css`; no hace falta cambiar la política de ejecución.
+
+## Editar y compilar los estilos
+
+Desde la carpeta del proyecto, iniciá la recompilación automática:
 
 ```sh
 npm run watch:css
 ```
+
+Mantené esa terminal abierta mientras editás los partials de `scss/`. Al guardar, Sass actualiza `styles/styles.css`; recargá el navegador para ver el cambio. Detené el modo de observación con `Ctrl+C`. Para una compilación puntual, ejecutá `npm run build`.
 
 `scss/main.scss` es el único punto de entrada. Los archivos que empiezan con `_` son partials y se cargan mediante `@use`; las dependencias de cada módulo se declaran también con `@use`.
 
@@ -116,17 +122,52 @@ Los HTML suman las clases de animación y contenedores para las grillas de exper
 
 ## Verificación de la entrega
 
-Se compiló el proyecto con Sass y se revisaron las cinco páginas en **60 combinaciones** de página y ancho: 375, 480, 600, 767, 768, 900, 991, 992, 1023, 1024, 1200 y 1400 px. En esas medidas no se detectaron scroll horizontal, textos cortados ni superposiciones de contenido.
+En la entrega de animaciones se compiló el proyecto con Sass y se revisaron las cinco páginas en **60 combinaciones** de página y ancho: 375, 480, 600, 767, 768, 900, 991, 992, 1023, 1024, 1200 y 1400 px. En esas medidas no se detectaron scroll horizontal, textos cortados ni superposiciones de contenido.
 
 También se comprobaron los cinco enlaces de cada menú móvil, las cuatro diapositivas del carrusel a 375 px y la reducción de las duraciones de animación con la preferencia de movimiento reducido activada en el dispositivo.
+
+Para la entrega de SEO y accesibilidad se repitió la revisión de las cinco páginas a **320, 375, 768, 992, 1024 y 1400 px** (30 combinaciones), sin desbordamientos ni superposiciones. Se verificaron los metadatos, los textos alternativos, la jerarquía de títulos, las rutas y las referencias ARIA. También se probaron con teclado el enlace de salto, los cinco menús móviles y las cuatro diapositivas del carrusel, además del foco y la flecha del selector. `npm ci`, `npm run build` y el inicio de `npm run watch:css` funcionaron correctamente.
+
+## SEO on-page y accesibilidad
+
+Cada HTML tiene un `title` y una `meta description` propios, un solo `h1` y una jerarquía de encabezados sin saltos. Las palabras clave se integran en títulos y contenido según el tema de la página:
+
+| Página | Tema principal |
+| --- | --- |
+| Inicio | Recomendaciones de videojuegos por experiencia. |
+| Juegos | Catálogo, títulos recomendados e historias de videojuegos. |
+| Experiencias | Exploración, historias, competición y juegos para relajarse. |
+| Géneros | RPG, FPS, MOBA, RTS, survival y horror. |
+| Contacto | Sugerencias de videojuegos y formulario de demostración. |
+
+No se añade `meta keywords`. Las descripciones resumen el contenido de cada página siguiendo la [guía de Google Search Central](https://developers.google.com/search/docs/appearance/snippet).
+
+Las cinco imágenes de contenido incluyen `alt` descriptivo. Los fondos de las tarjetas son decorativos y acompañan información que ya está escrita en HTML. Los nombres existentes, como `red-dead-redemption-2-bg.png` y `gamevault-hero-experiencias.png`, son descriptivos; se conservan las rutas y el `index.html` de entrada.
+
+La navegación incorpora un enlace inicial **Saltar al contenido principal**, el atributo `aria-current` para identificar la página actual y nombres para los menús principal y del pie. El mixin con parámetros `focus-ring` comparte el foco visible entre enlaces, campos y botones. Los enlaces del pie llevan a páginas reales del sitio.
+
+El carrusel avanza manualmente, tiene controles de 44 × 44 px, indicadores de 24 × 24 px y una región que anuncia los cambios a lectores de pantalla. Sus controles tienen fondo oscuro sólido para mantener el contraste sobre las fotografías. El formulario incluye etiquetas, autocompletado y una explicación de su carácter demostrativo; el envío permanece deshabilitado porque no hay un servicio de recepción.
+
+Se calcularon los contrastes según la fórmula de [WCAG para contraste mínimo](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html):
+
+| Texto / fondo | Relación |
+| --- | ---: |
+| Principal / fondo general | 17,91:1 |
+| Principal / superficie de tarjeta | 16,12:1 |
+| Secundario / superficie de tarjeta | 8,24:1 |
+| Acento / superficie de tarjeta | 10,19:1 |
+| Secundario / fotografía blanca bajo la capa oscura al 82 % (peor caso) | 5,43:1 |
+
+Estas combinaciones superan 4,5:1 para texto normal. El cálculo cubre las combinaciones indicadas; no constituye una certificación completa de conformidad WCAG.
 
 ## Control de versiones
 
 - `feature/pre-entrega`: estructura en la raíz, documentación y publicación en GitHub Pages.
 - `feature/arquitectura-scss`: herramientas de compilación, migración a partials y documentación de la arquitectura SCSS.
 - `feature/animaciones-responsive`: cierre del responsive en las cinco páginas, SCSS avanzado y animaciones.
+- `feature/seo-accesibilidad`: metadatos y contenido específico, mejoras de accesibilidad e instalación documentada.
 
-Las entregas se registran desde la consola con commits descriptivos y se integran a `main` conservando un commit de merge visible en el historial. Esta entrega separa en tres commits los ajustes responsive y de SCSS avanzado, las animaciones y la documentación.
+Las entregas se registran desde la consola con commits descriptivos y se integran a `main` conservando un commit de merge visible en el historial. La entrega de SEO y accesibilidad separa los cambios de contenido, los ajustes de accesibilidad y la documentación.
 
 ## Publicación en GitHub Pages
 
@@ -142,4 +183,4 @@ Dirección del sitio: [https://s-nievas.github.io/coderhouse-web-development/](h
 
 ## Alcance actual
 
-El sitio es estático. El formulario de contacto es demostrativo y no cuenta con un servicio de envío de mensajes. Los enlaces a redes sociales quedan pendientes para una próxima etapa.
+El sitio es estático. El formulario de contacto es demostrativo y no cuenta con un servicio de envío de mensajes.

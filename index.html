@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubrí videojuegos por género, historia y experiencia de juego. Explorá recomendaciones de RPG, aventuras y estrategia para elegir qué jugar en GameVault.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="styles/styles.css">
-    <title>GameVault | Inicio</title>
+    <title>Recomendaciones de videojuegos por experiencia | GameVault</title>
 </head>
 <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
     <!-- Encabezado y navegación principal -->
     <header class="site-header">
-        <nav class="navbar navbar-expand-lg main-nav gamevault-navbar">
+        <nav class="navbar navbar-expand-lg main-nav gamevault-navbar" aria-label="Navegación principal">
             <div class="container-fluid nav-container">
                 <a class="navbar-brand brand" href="index.html">GameVault</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gameVaultNavbar" aria-controls="gameVaultNavbar" aria-expanded="false" aria-label="Abrir menu de navegacion">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gameVaultNavbar" aria-controls="gameVaultNavbar" aria-expanded="false" aria-label="Menú de navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse" id="gameVaultNavbar">
                     <ul class="navbar-nav nav-links ms-lg-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index.html" aria-current="page">Inicio</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages/juegos.html">Juegos</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages/experiencias.html">Experiencias</a></li>
                         <li class="nav-item"><a class="nav-link" href="pages/generos.html">Géneros</a></li>
@@ -38,10 +40,10 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="main-content">
-        <section class="hero">
+    <main class="main-content" id="contenido-principal" tabindex="-1">
+        <section class="hero" aria-labelledby="page-title">
             <div class="hero-content">
-                <h1 class="animate__animated animate__fadeIn">Encontrá tu próxima experiencia.</h1>
+                <h1 class="animate__animated animate__fadeIn" id="page-title">Descubrí tu próximo videojuego</h1>
                 <p>
                     GameVault es una web pensada para recomendar videojuegos según lo que cada
                     jugador quiere sentir, explorar o descubrir, y no solamente por el género
@@ -56,7 +58,7 @@
         </section>
 
         <section class="content-section">
-            <h2>Cómo funciona GameVault</h2>
+            <h2>Cómo elegir videojuegos en GameVault</h2>
             <p>
                 El sitio permite descubrir juegos mediante géneros, experiencias, historias
                 y similitudes con otros videojuegos. La idea es que cada recomendación ayude
@@ -72,9 +74,9 @@
         </section>
 
         <section class="vault-carousel-section">
-            <h2>Experiencias destacadas</h2>
+            <h2>Videojuegos por experiencia</h2>
 
-            <div id="featuredVaultCarousel" class="carousel slide gamevault-carousel" data-bs-ride="carousel">
+            <div id="featuredVaultCarousel" class="carousel slide gamevault-carousel" data-bs-interval="false" role="region" aria-roledescription="carrusel" aria-label="Videojuegos por experiencia">
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#featuredVaultCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Red Dead Redemption 2"></button>
                     <button type="button" data-bs-target="#featuredVaultCarousel" data-bs-slide-to="1" aria-label="Elden Ring"></button>
@@ -82,8 +84,8 @@
                     <button type="button" data-bs-target="#featuredVaultCarousel" data-bs-slide-to="3" aria-label="Cyberpunk 2077"></button>
                 </div>
 
-                <div class="carousel-inner">
-                    <article class="carousel-item active">
+                <div class="carousel-inner" aria-live="polite" aria-atomic="true">
+                    <article class="carousel-item active" aria-roledescription="diapositiva" aria-label="1 de 4: Red Dead Redemption 2">
                         <img src="assets/img/red-dead-redemption-2-bg.png" class="d-block w-100" alt="Jinete del viejo oeste recortado contra el atardecer">
                         <div class="carousel-caption">
                             <h3>Red Dead Redemption 2</h3>
@@ -91,7 +93,7 @@
                         </div>
                     </article>
 
-                    <article class="carousel-item">
+                    <article class="carousel-item" aria-roledescription="diapositiva" aria-label="2 de 4: Elden Ring">
                         <img src="assets/img/elden-ring-bg.png" class="d-block w-100" alt="Paisaje oscuro de fantasía con un símbolo dorado sobre ruinas">
                         <div class="carousel-caption">
                             <h3>Elden Ring</h3>
@@ -99,7 +101,7 @@
                         </div>
                     </article>
 
-                    <article class="carousel-item">
+                    <article class="carousel-item" aria-roledescription="diapositiva" aria-label="3 de 4: Age of Empires II">
                         <img src="assets/img/age-of-empires-2-bg.png" class="d-block w-100" alt="Batalla de estrategia medieval vista desde arriba">
                         <div class="carousel-caption">
                             <h3>Age of Empires II</h3>
@@ -107,7 +109,7 @@
                         </div>
                     </article>
 
-                    <article class="carousel-item">
+                    <article class="carousel-item" aria-roledescription="diapositiva" aria-label="4 de 4: Cyberpunk 2077">
                         <img src="assets/img/cyberpunk-2077-bg.png" class="d-block w-100" alt="Ciudad futurista nocturna con luces de neón y un auto deportivo">
                         <div class="carousel-caption">
                             <h3>Cyberpunk 2077</h3>
@@ -128,7 +130,7 @@
         </section>
 
         <section class="featured-games">
-            <h2>Juegos destacados</h2>
+            <h2>Videojuegos recomendados</h2>
 
             <div class="featured-games-grid">
                 <article class="game-card game-card-featured-red-dead">
@@ -185,11 +187,13 @@
     <!-- Pie de página -->
     <footer class="site-footer">
         <p>GameVault. Copyright 2026.</p>
-        <ul class="footer-links">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Discord</a></li>
-        </ul>
+        <nav aria-label="Navegación del pie de página">
+            <ul class="footer-links">
+                <li><a href="pages/juegos.html">Catálogo de videojuegos</a></li>
+                <li><a href="pages/experiencias.html">Experiencias de juego</a></li>
+                <li><a href="pages/contacto.html">Sugerencias de videojuegos</a></li>
+            </ul>
+        </nav>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

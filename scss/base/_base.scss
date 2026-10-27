@@ -1,4 +1,5 @@
 @use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
 
 * {
   margin: 0;
@@ -52,8 +53,30 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: v.$focus-width solid v.$color-accent;
-  outline-offset: v.$focus-offset;
+  @include m.focus-ring;
+}
+
+.skip-link {
+  position: absolute;
+  top: v.$space-12;
+  left: v.$space-12;
+  z-index: 1100;
+  max-width: calc(100% - #{v.$space-24});
+  padding: v.$space-12 v.$space-16;
+  color: v.$color-background;
+  background-color: v.$color-accent;
+  border-radius: v.$radius-small;
+  font-weight: v.$weight-bold;
+  transform: translateY(calc(-100% - #{v.$space-16}));
+
+  &:focus {
+    color: v.$color-background;
+    transform: translateY(0);
+  }
+}
+
+.main-content:focus-visible {
+  @include m.focus-ring;
 }
 
 // Respeta la preferencia del dispositivo, incluidas las librerías externas.

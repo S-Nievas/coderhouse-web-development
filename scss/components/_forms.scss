@@ -23,13 +23,22 @@
   @include m.stack(v.$space-8);
 }
 
+.contact-form {
+  .form-control,
+  .form-select {
+    color: v.$color-text;
+    background-color: v.$color-background;
+    border-color: v.$color-muted;
+    color-scheme: dark;
+  }
+}
+
 input:focus,
 select:focus,
 textarea:focus,
 .form-control:focus,
 .form-select:focus {
-  outline: v.$focus-width solid v.$color-accent;
-  outline-offset: v.$focus-offset-control;
+  @include m.focus-ring($offset: v.$focus-offset-control);
   background-color: v.$color-background;
   color: v.$color-text;
   border-color: v.$color-accent;

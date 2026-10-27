@@ -31,7 +31,7 @@
     display: block;
     right: v.$footer-gutter;
     left: v.$footer-gutter;
-    bottom: v.$space-22;
+    bottom: v.$space-48;
     padding: v.$space-16;
     background-color: rgba(v.$color-background, 0.82);
     border: v.$border-width solid rgba(v.$color-accent, 0.45);
@@ -57,6 +57,15 @@
 
   .carousel-control-prev,
   .carousel-control-next {
+    top: v.$space-16;
+    bottom: auto;
+    width: 44px;
+    height: 44px;
+    background-color: v.$color-background;
+    border: v.$border-width solid v.$color-text;
+    border-radius: v.$radius-pill;
+    opacity: 1;
+
     &:hover,
     &:focus {
       opacity: 1;
@@ -65,11 +74,44 @@
     &:active {
       transform: scale(0.96);
     }
+
+    &:focus-visible {
+      @include m.focus-ring($offset: -4px);
+    }
+  }
+
+  .carousel-control-prev {
+    left: v.$space-12;
+  }
+
+  .carousel-control-next {
+    right: v.$space-12;
   }
 
   .carousel-indicators {
+    bottom: v.$space-8;
+    width: fit-content;
+    margin: 0 auto;
+    padding: v.$space-4;
+    background-color: v.$color-background;
+    border-radius: v.$radius-pill;
+
     button {
+      box-sizing: border-box;
+      width: 24px;
+      height: 24px;
+      border: v.$focus-width solid transparent;
+      border-radius: v.$radius-pill;
       background-color: v.$color-muted;
+      opacity: 1;
+
+      &:focus-visible {
+        @include m.focus-ring($offset: 1px);
+      }
+    }
+
+    .active {
+      border-color: v.$color-text;
     }
 
     .active,
