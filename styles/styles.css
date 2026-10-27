@@ -51,6 +51,31 @@ select:focus-visible,
 textarea:focus-visible {
   outline: 2px solid #00d9ff;
   outline-offset: 3px;
+  box-shadow: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
+  max-width: calc(100% - 24px);
+  padding: 12px 16px;
+  color: #0b0f14;
+  background-color: #00d9ff;
+  border-radius: 6px;
+  font-weight: 700;
+  transform: translateY(calc(-100% - 16px));
+}
+.skip-link:focus {
+  color: #0b0f14;
+  transform: translateY(0);
+}
+
+.main-content:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+  box-shadow: none;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -220,6 +245,21 @@ figcaption {
   background-color: #00d9ff;
   border-color: #00d9ff;
   transform: translateY(1px);
+}
+.gamevault-navbar .nav-link[aria-current=page] {
+  color: #00d9ff;
+  border-color: #00d9ff;
+}
+.gamevault-navbar .nav-link[aria-current=page]:active {
+  color: #0b0f14;
+}
+.gamevault-navbar .nav-link[aria-current=page]::after {
+  transform: scaleX(1);
+}
+.gamevault-navbar .nav-link:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+  box-shadow: none;
 }
 .gamevault-navbar .nav-link::after {
   content: "";
@@ -581,7 +621,7 @@ figcaption {
   display: block;
   right: 8%;
   left: 8%;
-  bottom: 22px;
+  bottom: 48px;
   padding: 16px;
   background-color: rgba(11, 15, 20, 0.82);
   border: 1px solid rgba(0, 217, 255, 0.45);
@@ -599,6 +639,17 @@ figcaption {
 .gamevault-carousel .carousel-indicators button {
   transition: opacity 0.25s ease, transform 0.2s ease, background-color 0.25s ease;
 }
+.gamevault-carousel .carousel-control-prev,
+.gamevault-carousel .carousel-control-next {
+  top: 16px;
+  bottom: auto;
+  width: 44px;
+  height: 44px;
+  background-color: #0b0f14;
+  border: 1px solid #f5f7fa;
+  border-radius: 999px;
+  opacity: 1;
+}
 .gamevault-carousel .carousel-control-prev:hover, .gamevault-carousel .carousel-control-prev:focus,
 .gamevault-carousel .carousel-control-next:hover,
 .gamevault-carousel .carousel-control-next:focus {
@@ -608,8 +659,42 @@ figcaption {
 .gamevault-carousel .carousel-control-next:active {
   transform: scale(0.96);
 }
+.gamevault-carousel .carousel-control-prev:focus-visible,
+.gamevault-carousel .carousel-control-next:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: -4px;
+  box-shadow: none;
+}
+.gamevault-carousel .carousel-control-prev {
+  left: 12px;
+}
+.gamevault-carousel .carousel-control-next {
+  right: 12px;
+}
+.gamevault-carousel .carousel-indicators {
+  bottom: 8px;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 4px;
+  background-color: #0b0f14;
+  border-radius: 999px;
+}
 .gamevault-carousel .carousel-indicators button {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border: 2px solid transparent;
+  border-radius: 999px;
   background-color: #aab4c0;
+  opacity: 1;
+}
+.gamevault-carousel .carousel-indicators button:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 1px;
+  box-shadow: none;
+}
+.gamevault-carousel .carousel-indicators .active {
+  border-color: #f5f7fa;
 }
 .gamevault-carousel .carousel-indicators .active,
 .gamevault-carousel .carousel-indicators button:hover,
@@ -651,6 +736,14 @@ figcaption {
   gap: 8px;
 }
 
+.contact-form .form-control,
+.contact-form .form-select {
+  color: #f5f7fa;
+  background-color: #0b0f14;
+  border-color: #aab4c0;
+  color-scheme: dark;
+}
+
 input:focus,
 select:focus,
 textarea:focus,
@@ -658,6 +751,7 @@ textarea:focus,
 .form-select:focus {
   outline: 2px solid #00d9ff;
   outline-offset: 2px;
+  box-shadow: none;
   background-color: #0b0f14;
   color: #f5f7fa;
   border-color: #00d9ff;
@@ -690,6 +784,19 @@ textarea:focus,
   background-color: #aab4c0;
   border-color: #aab4c0;
   transform: translateY(1px);
+}
+
+.primary-button:focus-visible {
+  outline: 2px solid #00d9ff;
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.primary-button:disabled {
+  color: #0b0f14;
+  background-color: #aab4c0;
+  border-color: #aab4c0;
+  opacity: 1;
 }
 
 .site-footer {

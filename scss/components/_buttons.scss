@@ -1,4 +1,5 @@
 @use "../utilities/variables" as v;
+@use "../utilities/mixins" as m;
 
 .primary-button {
   align-self: flex-start;
@@ -32,4 +33,15 @@
   background-color: v.$color-muted;
   border-color: v.$color-muted;
   transform: translateY(1px);
+}
+
+.primary-button:focus-visible {
+  @include m.focus-ring;
+}
+
+.primary-button:disabled {
+  color: v.$color-background;
+  background-color: v.$color-muted;
+  border-color: v.$color-muted;
+  opacity: 1;
 }

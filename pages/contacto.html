@@ -13,13 +13,14 @@
     <title>Sugerencias de videojuegos: formulario demo | GameVault</title>
 </head>
 <body>
+    <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
     <!-- Encabezado y navegación principal -->
     <header class="site-header">
-        <nav class="navbar navbar-expand-lg main-nav gamevault-navbar">
+        <nav class="navbar navbar-expand-lg main-nav gamevault-navbar" aria-label="Navegación principal">
             <div class="container-fluid nav-container">
                 <a class="navbar-brand brand" href="../index.html">GameVault</a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gameVaultNavbar" aria-controls="gameVaultNavbar" aria-expanded="false" aria-label="Abrir menu de navegacion">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#gameVaultNavbar" aria-controls="gameVaultNavbar" aria-expanded="false" aria-label="Menú de navegación">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -29,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link" href="juegos.html">Juegos</a></li>
                         <li class="nav-item"><a class="nav-link" href="experiencias.html">Experiencias</a></li>
                         <li class="nav-item"><a class="nav-link" href="generos.html">Géneros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html" aria-current="page">Contacto</a></li>
                     </ul>
                 </div>
             </div>
@@ -39,7 +40,7 @@
     </header>
 
     <!-- Contenido principal -->
-    <main class="main-content">
+    <main class="main-content" id="contenido-principal" tabindex="-1">
         <section class="intro-section" aria-labelledby="page-title">
             <h1 class="animate__animated animate__fadeIn" id="page-title">Sugerencias de videojuegos</h1>
             <p>
@@ -52,15 +53,17 @@
         <section class="contact-section">
             <h2>Formulario de recomendación</h2>
 
-            <form class="contact-form" action="#" method="post">
+            <p id="form-help">Podés completar los campos para probar el formulario. El envío de recomendaciones todavía no está disponible.</p>
+
+            <form class="contact-form" data-bs-theme="dark" aria-describedby="form-help">
                 <p class="form-field">
                     <label for="nombre">Nombre</label>
-                    <input class="form-control" type="text" id="nombre" name="nombre">
+                    <input class="form-control" type="text" id="nombre" name="nombre" autocomplete="name">
                 </p>
 
                 <p class="form-field">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" id="email" name="email">
+                    <input class="form-control" type="email" id="email" name="email" autocomplete="email">
                 </p>
 
                 <p class="form-field">
@@ -87,7 +90,7 @@
                     <textarea class="form-control" id="motivo" name="motivo" rows="5"></textarea>
                 </p>
 
-                <button class="btn primary-button gamevault-btn" type="submit">Enviar recomendación</button>
+                <button class="btn primary-button gamevault-btn" type="button" disabled>Envío no disponible (demo)</button>
             </form>
         </section>
     </main>
@@ -95,11 +98,13 @@
     <!-- Pie de página -->
     <footer class="site-footer">
         <p>GameVault. Copyright 2026.</p>
-        <ul class="footer-links">
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">YouTube</a></li>
-            <li><a href="#">Discord</a></li>
-        </ul>
+        <nav aria-label="Navegación del pie de página">
+            <ul class="footer-links">
+                <li><a href="juegos.html">Catálogo de videojuegos</a></li>
+                <li><a href="experiencias.html">Experiencias de juego</a></li>
+                <li><a href="contacto.html">Sugerencias de videojuegos</a></li>
+            </ul>
+        </nav>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>

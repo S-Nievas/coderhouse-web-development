@@ -17,6 +17,13 @@
   border-radius: v.$radius-medium;
 }
 
+// Un foco reconocible, reutilizable también sobre los controles de Bootstrap.
+@mixin focus-ring($color: v.$color-accent, $offset: v.$focus-offset) {
+  outline: v.$focus-width solid $color;
+  outline-offset: $offset;
+  box-shadow: none;
+}
+
 @mixin tablet {
   @media (min-width: v.$breakpoint-tablet) {
     @content;
