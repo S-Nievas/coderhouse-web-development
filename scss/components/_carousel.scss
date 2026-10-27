@@ -18,6 +18,10 @@
     height: v.$carousel-height-mobile;
     object-fit: cover;
 
+    @include m.tablet {
+      height: v.$carousel-height-mobile + v.$space-40;
+    }
+
     @include m.desktop {
       height: v.$carousel-height-desktop;
     }

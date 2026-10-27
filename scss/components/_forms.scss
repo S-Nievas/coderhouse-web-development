@@ -2,11 +2,24 @@
 @use "../utilities/mixins" as m;
 
 .contact-form {
+  width: 100%;
   max-width: v.$form-max;
-  @include m.stack(v.$space-18);
+  @include m.responsive-grid(2, 2, v.$space-18);
+
+  .form-field:last-of-type {
+    grid-column: 1 / -1;
+  }
+
+  .primary-button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    max-width: 100%;
+  }
 }
 
 .form-field {
+  min-width: 0;
+  margin-bottom: 0;
   @include m.stack(v.$space-8);
 }
 

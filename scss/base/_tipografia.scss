@@ -22,9 +22,18 @@ h1 {
   line-height: v.$line-height-heading;
   overflow-wrap: break-word;
 
+  @include m.tablet {
+    font-size: 34px;
+  }
+
   @include m.desktop {
     font-size: v.$font-size-h1-desktop;
   }
+}
+
+// Animate.css aporta fadeIn; la duración pertenece al diseño del proyecto.
+h1.animate__animated {
+  --animate-duration: #{v.$animation-duration};
 }
 
 h2 {
