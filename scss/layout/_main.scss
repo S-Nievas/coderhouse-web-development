@@ -5,6 +5,10 @@
   @include m.container;
   padding: v.$space-32 0;
 
+  @include m.tablet {
+    padding: v.$space-40 0;
+  }
+
   @include m.desktop {
     padding: v.$space-48 0;
   }
@@ -19,7 +23,7 @@
   @include m.surface;
   min-width: 0;
 
-  @include m.desktop {
+  @include m.tablet {
     padding: v.$space-32;
   }
 }

@@ -74,10 +74,19 @@ h1 {
   line-height: 1.15;
   overflow-wrap: break-word;
 }
+@media (min-width: 768px) {
+  h1 {
+    font-size: 34px;
+  }
+}
 @media (min-width: 1024px) {
   h1 {
     font-size: 42px;
   }
+}
+
+h1.animate__animated {
+  --animate-duration: 0.6s;
 }
 
 h2 {
@@ -232,6 +241,11 @@ figcaption {
   margin: 0 auto;
   padding: 32px 0;
 }
+@media (min-width: 768px) {
+  .main-content {
+    padding: 40px 0;
+  }
+}
 @media (min-width: 1024px) {
   .main-content {
     padding: 48px 0;
@@ -249,7 +263,7 @@ figcaption {
   border-radius: 8px;
   min-width: 0;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .hero,
   .intro-section,
   .content-section,
@@ -322,26 +336,59 @@ figcaption {
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
+@media (min-width: 768px) {
+  .featured-games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (min-width: 1024px) {
   .featured-games-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
-.games-grid {
+.games-grid,
+.experience-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
 }
+@media (min-width: 768px) {
+  .games-grid,
+  .experience-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 @media (min-width: 1024px) {
-  .games-grid {
+  .games-grid,
+  .experience-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-.game-card,
+.genre-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .genre-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .genre-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.experience-grid > article,
+.genre-grid > article {
+  margin-bottom: 0;
+}
+
 .experience-card,
-.genre-card {
+.genre-card, .game-card {
   padding: 24px;
   min-width: 0;
   display: flex;
@@ -352,22 +399,26 @@ figcaption {
   border-radius: 8px;
   transition: border-color 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
 }
-.game-card:hover,
-.experience-card:hover,
-.genre-card:hover {
+.experience-card:focus-within,
+.genre-card:focus-within, .game-card:focus-within {
   border-color: #00d9ff;
   box-shadow: 0 10px 24px rgba(0, 217, 255, 0.08);
-  transform: translateY(-2px);
 }
-.game-card:active,
-.experience-card:active,
-.genre-card:active {
-  transform: translateY(0);
+@media (hover: hover) and (pointer: fine) {
+  .experience-card:hover,
+  .genre-card:hover, .game-card:hover {
+    border-color: #00d9ff;
+    box-shadow: 0 10px 24px rgba(0, 217, 255, 0.08);
+    transform: translateY(-2px);
+  }
+  .experience-card:active,
+  .genre-card:active, .game-card:active {
+    transform: translateY(0);
+  }
 }
 @media (min-width: 1024px) {
-  .game-card,
   .experience-card,
-  .genre-card {
+  .genre-card, .game-card {
     padding: 32px;
   }
 }
@@ -403,10 +454,17 @@ figcaption {
   font-weight: 700;
   transition: color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
 }
-.gamevault-badge:hover, .gamevault-badge:focus {
+.gamevault-badge:focus {
   color: #f5f7fa;
   background-color: #161b22;
   border-color: #f5f7fa;
+}
+@media (hover: hover) and (pointer: fine) {
+  .gamevault-badge:hover {
+    color: #f5f7fa;
+    background-color: #161b22;
+    border-color: #f5f7fa;
+  }
 }
 
 .game-card-featured-red-dead {
@@ -466,6 +524,11 @@ figcaption {
   height: 280px;
   object-fit: cover;
 }
+@media (min-width: 768px) {
+  .gamevault-carousel .carousel-item img {
+    height: 320px;
+  }
+}
 @media (min-width: 1024px) {
   .gamevault-carousel .carousel-item img {
     height: 420px;
@@ -512,13 +575,34 @@ figcaption {
 }
 
 .contact-form {
+  width: 100%;
   max-width: 720px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 18px;
+}
+@media (min-width: 768px) {
+  .contact-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1024px) {
+  .contact-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.contact-form .form-field:last-of-type {
+  grid-column: 1/-1;
+}
+.contact-form .primary-button {
+  grid-column: 1/-1;
+  justify-self: start;
+  max-width: 100%;
 }
 
 .form-field {
+  min-width: 0;
+  margin-bottom: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;

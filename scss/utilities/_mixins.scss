@@ -17,9 +17,30 @@
   border-radius: v.$radius-medium;
 }
 
+@mixin tablet {
+  @media (min-width: v.$breakpoint-tablet) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: v.$breakpoint-desktop) {
     @content;
+  }
+}
+
+// Una columna como base; cada componente elige sus columnas y separación.
+@mixin responsive-grid($tablet-columns: 2, $desktop-columns: 3, $gap: v.$space-24) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: $gap;
+
+  @include tablet {
+    grid-template-columns: repeat($tablet-columns, minmax(0, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat($desktop-columns, minmax(0, 1fr));
   }
 }
 

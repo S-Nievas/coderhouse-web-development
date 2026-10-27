@@ -10,28 +10,27 @@
 }
 
 .featured-games-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: v.$space-24;
+  @include m.responsive-grid;
+}
 
-  @include m.desktop {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+.games-grid,
+.experience-grid {
+  @include m.responsive-grid($desktop-columns: 2);
+}
+
+.genre-grid {
+  @include m.responsive-grid;
+}
+
+.experience-grid,
+.genre-grid {
+  > article {
+    margin-bottom: 0;
   }
 }
 
-.games-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  gap: v.$space-24;
-
-  @include m.desktop {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-.game-card,
-.experience-card,
-.genre-card {
+// @extend reutiliza la misma base visual sin duplicar sus declaraciones.
+%content-card {
   padding: v.$space-24;
   min-width: 0;
   @include m.stack(v.$space-14);
@@ -41,14 +40,21 @@
     box-shadow v.$transition-duration v.$transition-easing,
     transform v.$transition-fast v.$transition-easing;
 
-  &:hover {
+  &:focus-within {
     border-color: v.$color-accent;
     box-shadow: 0 v.$space-10 v.$space-24 rgba(v.$color-accent, 0.08);
-    transform: translateY(-2px);
   }
 
-  &:active {
-    transform: translateY(0);
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      border-color: v.$color-accent;
+      box-shadow: 0 v.$space-10 v.$space-24 rgba(v.$color-accent, 0.08);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
   }
 
   @include m.desktop {
@@ -57,6 +63,8 @@
 }
 
 .game-card {
+  @extend %content-card;
+
   &.card {
     color: v.$color-text;
     background-color: v.$color-surface;
@@ -65,6 +73,8 @@
 
 .experience-card,
 .genre-card {
+  @extend %content-card;
+
   margin-bottom: v.$space-22;
 
   ul {
@@ -89,11 +99,18 @@
     background-color v.$transition-duration v.$transition-easing,
     border-color v.$transition-duration v.$transition-easing;
 
-  &:hover,
   &:focus {
     color: v.$color-text;
     background-color: v.$color-surface;
     border-color: v.$color-text;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      color: v.$color-text;
+      background-color: v.$color-surface;
+      border-color: v.$color-text;
+    }
   }
 }
 
