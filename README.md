@@ -36,6 +36,8 @@ coderhouse-web-development/
 ├── README.md
 ├── package.json
 ├── package-lock.json
+├── scripts/
+│   └── build-site.mjs      # Prepara la carpeta de publicación dist/.
 ├── pages/
 │   ├── juegos.html
 │   ├── experiencias.html
@@ -97,13 +99,25 @@ npm run watch:css
 
 Mantené esa terminal abierta mientras editás los partials de `scss/`. Al guardar, Sass actualiza `styles/styles.css`; recargá el navegador para ver el cambio. Detené el modo de observación con `Ctrl+C`. Para una compilación puntual, ejecutá `npm run build`.
 
-`scss/main.scss` es el único punto de entrada. Los archivos que empiezan con `_` son partials y se cargan mediante `@use`; las dependencias de cada módulo se declaran también con `@use`.
+`scss/main.scss` es el único punto de entrada y contiene exclusivamente imports con `@use`. Los archivos que empiezan con `_` son partials; las dependencias de cada módulo se declaran también con `@use`.
 
 La salida única es `styles/styles.css`, conservando la ruta que enlazan los cinco HTML. Todo cambio de estilo propio se hace en `scss/` y luego se compila; no se generan otras hojas propias ni source maps. Bootstrap y su navbar siguen presentes en todas las páginas.
 
 `utilities/` centraliza los valores reutilizables y los mixins; `base/` contiene los estilos globales y la tipografía; `layout/` organiza la página y la navegación; `components/` contiene los elementos repetibles. Las reglas responsive y las animaciones se mantienen en el partial correspondiente, sobre la arquitectura de la entrega anterior.
 
 Antes de subir cambios en SCSS, ejecutá `npm run build` y versioná tanto las fuentes como el CSS generado. `node_modules/` está excluido mediante `.gitignore`.
+
+## Preparar la publicación en Netlify o Vercel
+
+Después de instalar las dependencias con `npm ci`, ejecutá:
+
+```sh
+npm run build:site
+```
+
+Este comando compila Sass en `styles/styles.css` y crea `dist/` con `index.html`, `pages/`, `styles/` y `assets/`, conservando las rutas relativas. Cada ejecución reemplaza únicamente la carpeta generada `dist/`, que está excluida de Git; las fuentes permanecen en la estructura del repositorio.
+
+Para un despliegue conectado a Git, usá `npm run build:site` como comando de compilación y `dist` como directorio de publicación. Si publicás manualmente, subí el contenido de `dist/` ya compilado, con `index.html` en su raíz. Los cambios de un despliegue manual se publican compilando y subiendo nuevamente esa carpeta.
 
 ## SCSS avanzado y responsive
 
@@ -130,7 +144,7 @@ Para la entrega de SEO y accesibilidad se repitió la revisión de las cinco pá
 
 ## SEO on-page y accesibilidad
 
-Cada HTML tiene un `title` y una `meta description` propios, un solo `h1` y una jerarquía de encabezados sin saltos. Las palabras clave se integran en títulos y contenido según el tema de la página:
+Cada HTML tiene un `title`, una `meta description` y una `meta keywords` propios, un solo `h1` y una jerarquía de encabezados sin saltos. Las palabras clave se integran en títulos y contenido según el tema de la página:
 
 | Página | Tema principal |
 | --- | --- |
@@ -140,7 +154,7 @@ Cada HTML tiene un `title` y una `meta description` propios, un solo `h1` y una 
 | Géneros | RPG, FPS, MOBA, RTS, survival y horror. |
 | Contacto | Sugerencias de videojuegos y formulario de demostración. |
 
-No se añade `meta keywords`. Las descripciones resumen el contenido de cada página siguiendo la [guía de Google Search Central](https://developers.google.com/search/docs/appearance/snippet).
+La etiqueta `meta keywords` se incluye para cumplir la consigna del proyecto final. Las descripciones resumen el contenido de cada página siguiendo la [guía de Google Search Central](https://developers.google.com/search/docs/appearance/snippet).
 
 Las cinco imágenes de contenido incluyen `alt` descriptivo. Los fondos de las tarjetas son decorativos y acompañan información que ya está escrita en HTML. Los nombres existentes, como `red-dead-redemption-2-bg.png` y `gamevault-hero-experiencias.png`, son descriptivos; se conservan las rutas y el `index.html` de entrada.
 
@@ -166,6 +180,7 @@ Estas combinaciones superan 4,5:1 para texto normal. El cálculo cubre las combi
 - `feature/arquitectura-scss`: herramientas de compilación, migración a partials y documentación de la arquitectura SCSS.
 - `feature/animaciones-responsive`: cierre del responsive en las cinco páginas, SCSS avanzado y animaciones.
 - `feature/seo-accesibilidad`: metadatos y contenido específico, mejoras de accesibilidad e instalación documentada.
+- `feature/proyecto-final`: requisitos finales de metadatos, punto de entrada SCSS y preparación para publicar en un servidor.
 
 Las entregas se registran desde la consola con commits descriptivos y se integran a `main` conservando un commit de merge visible en el historial. La entrega de SEO y accesibilidad separa los cambios de contenido, los ajustes de accesibilidad y la documentación.
 
