@@ -3,7 +3,8 @@
 Proyecto académico de Desarrollo Web de Coderhouse para descubrir videojuegos según su género y el tipo de experiencia que ofrecen.
 
 - **Repositorio:** [S-Nievas/coderhouse-web-development](https://github.com/S-Nievas/coderhouse-web-development)
-- **Sitio web:** [GameVault](https://s-nievas.github.io/coderhouse-web-development/)
+- **Sitio web — entrega final:** [GameVault en Netlify](https://gamevault-snievas.netlify.app/)
+- **Publicación alternativa de las entregas anteriores:** [GameVault en GitHub Pages](https://s-nievas.github.io/coderhouse-web-development/)
 
 ## Páginas
 
@@ -85,7 +86,7 @@ npm run build
 
 Al terminar sin errores, Sass genera **`styles/styles.css`** desde **`scss/main.scss`**. No hace falta instalar Sass globalmente: se usa la versión local del proyecto.
 
-Abrí `index.html` en un navegador y recorré las cinco páginas desde el menú. No se requieren servidor, claves ni variables de entorno. Si solo querés visitar el sitio, podés usar [GameVault publicado](https://s-nievas.github.io/coderhouse-web-development/) o abrir el HTML descargado: el CSS compilado ya está incluido. Se necesita internet para los CDN de Bootstrap, Animate.css y Google Fonts.
+Abrí `index.html` en un navegador y recorré las cinco páginas desde el menú. No se requieren servidor, claves ni variables de entorno. Si solo querés visitar el sitio, podés usar [GameVault publicado](https://gamevault-snievas.netlify.app/) o abrir el HTML descargado: el CSS compilado ya está incluido. Se necesita internet para los CDN de Bootstrap, Animate.css y Google Fonts.
 
 En Windows, si PowerShell bloquea `npm.ps1`, usá `npm.cmd ci`, `npm.cmd run build` y `npm.cmd run watch:css`; no hace falta cambiar la política de ejecución.
 
@@ -107,17 +108,22 @@ La salida única es `styles/styles.css`, conservando la ruta que enlazan los cin
 
 Antes de subir cambios en SCSS, ejecutá `npm run build` y versioná tanto las fuentes como el CSS generado. `node_modules/` está excluido mediante `.gitignore`.
 
-## Preparar la publicación en Netlify o Vercel
+## Publicación en Netlify
 
-Después de instalar las dependencias con `npm ci`, ejecutá:
+El sitio de la entrega final está publicado en [gamevault-snievas.netlify.app](https://gamevault-snievas.netlify.app/) mediante una carga manual con Netlify Drop. El proyecto de Netlify no está conectado a GitHub: hacer `push` al repositorio no actualiza automáticamente esta publicación.
+
+Para preparar una nueva versión, ejecutá desde la carpeta del repositorio:
 
 ```sh
+npm ci
 npm run build:site
 ```
 
 Este comando compila Sass en `styles/styles.css` y crea `dist/` con `index.html`, `pages/`, `styles/` y `assets/`, conservando las rutas relativas. Cada ejecución reemplaza únicamente la carpeta generada `dist/`, que está excluida de Git; las fuentes permanecen en la estructura del repositorio.
 
-Para un despliegue conectado a Git, usá `npm run build:site` como comando de compilación y `dist` como directorio de publicación. Si publicás manualmente, subí el contenido de `dist/` ya compilado, con `index.html` en su raíz. Los cambios de un despliegue manual se publican compilando y subiendo nuevamente esa carpeta.
+Para actualizar el sitio existente, iniciá sesión en Netlify, abrí el proyecto **gamevault-snievas** y entrá en **Deploys**. Subí la carpeta `dist/` ya compilada en la zona de carga manual. También se puede subir un ZIP con el contenido de esa carpeta: `index.html` debe quedar en la raíz del ZIP, junto con `pages/`, `styles/` y `assets/`. Usá siempre el mismo proyecto para conservar la dirección pública.
+
+Si más adelante se conecta el repositorio a Netlify para automatizar las publicaciones, la configuración será **Build command:** `npm run build:site` y **Publish directory:** `dist`. Esa conexión todavía no está habilitada.
 
 ## SCSS avanzado y responsive
 
@@ -141,6 +147,10 @@ En la entrega de animaciones se compiló el proyecto con Sass y se revisaron las
 También se comprobaron los cinco enlaces de cada menú móvil, las cuatro diapositivas del carrusel a 375 px y la reducción de las duraciones de animación con la preferencia de movimiento reducido activada en el dispositivo.
 
 Para la entrega de SEO y accesibilidad se repitió la revisión de las cinco páginas a **320, 375, 768, 992, 1024 y 1400 px** (30 combinaciones), sin desbordamientos ni superposiciones. Se verificaron los metadatos, los textos alternativos, la jerarquía de títulos, las rutas y las referencias ARIA. También se probaron con teclado el enlace de salto, los cinco menús móviles y las cuatro diapositivas del carrusel, además del foco y la flecha del selector. `npm ci`, `npm run build` y el inicio de `npm run watch:css` funcionaron correctamente.
+
+En la publicación final de Netlify se verificaron los metadatos de los cinco HTML y la carga del CSS y las siete imágenes, sin errores 404. Las **16 URL internas comprobadas** respondieron con estado HTTP **200**, sin requerir inicio de sesión para acceder al sitio.
+
+También se revisaron las cinco páginas publicadas a **375, 768, 1024 y 1400 px** (20 combinaciones), sin scroll horizontal ni textos cortados. Los cinco menús móviles abren y muestran sus enlaces; los cuatro indicadores del carrusel seleccionan la diapositiva correspondiente.
 
 ## SEO on-page y accesibilidad
 
@@ -184,7 +194,9 @@ Estas combinaciones superan 4,5:1 para texto normal. El cálculo cubre las combi
 
 Las entregas se registran desde la consola con commits descriptivos y se integran a `main` conservando un commit de merge visible en el historial. La entrega de SEO y accesibilidad separa los cambios de contenido, los ajustes de accesibilidad y la documentación.
 
-## Publicación en GitHub Pages
+## Publicación alternativa en GitHub Pages
+
+GitHub Pages conserva la publicación utilizada en las entregas anteriores. La dirección principal para el proyecto final es la de Netlify indicada al inicio del README.
 
 En **Settings → Pages → Build and deployment**, la configuración de publicación es:
 
